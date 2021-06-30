@@ -1,8 +1,10 @@
 .Navbar{
     background-color: pink !important;
-    
+    padding: 10px;
+    margin-bottom: 30px;
 }
 
 .light__theme{
     color: white !important;
 }
+
