@@ -25,4 +25,5 @@ a {
 
 .link__override{
   text-decoration: none !important;
+  color: black;
 }

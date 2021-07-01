@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import Link from 'next/link'
 import CustomCard from '../../components/CustomCard'
 
 export const getStaticProps =  async () => {
@@ -26,8 +26,10 @@ const Products = ({products}) => {
             <div className="row">
                 {products.map((prod) => {
                     return (
-                        <div className="col-3" key={prod.id}>  
-                            <CustomCard name={prod.name} image_link={prod.image_link} rating={prod.rating} price={prod.price} price_sign={prod.price_sign}/>
+                        <div className="col-3" key={prod.id}>
+                            <Link href={`/products/${prod.id}`} passHref> 
+                               <a className="link__override"> <CustomCard name={prod.name} image_link={prod.image_link} rating={prod.rating} price={prod.price} price_sign={prod.price_sign}/></a>
+                            </Link> 
                         </div>
                                 
                     )
