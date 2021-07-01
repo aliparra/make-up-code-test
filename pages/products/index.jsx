@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import CustomCard from '../../components/CustomCard'
 
 export const getStaticProps =  async () => {
 
@@ -22,24 +23,16 @@ const Products = ({products}) => {
         <div >
             <h1 className='text-center py-3'>Products here</h1>
             <div className="container">
-            
-            {products.map((prod) => {
-                return (
-                    <div key={prod.id}>
-                        <div className="row">
-                        <div className="col-12">
-                                    <div className="custom__card">
-                                        <img src={prod.image_link ? prod.image_link : "https://via.placeholder.com/150" } alt="makeup logo"  width={150} />
-                                        <p>{prod.name}</p>
-                                        <p>{prod.rating ? `⭐ ${prod.rating}` : "No ratings yet" }</p>
-                                        <p>{prod.price} {prod.price_sign ? prod.price_sign : "$"}</p>
-                                    </div>
-                                </div>
-                            </div>
-                            </div>
-                       
-                )
-            })}
+            <div className="row">
+                {products.map((prod) => {
+                    return (
+                        <div className="col-3" key={prod.id}>  
+                            <CustomCard name={prod.name} image_link={prod.image_link} rating={prod.rating} price={prod.price} price_sign={prod.price_sign}/>
+                        </div>
+                                
+                    )
+                })}
+                </div>
             
             </div>
         </div>
